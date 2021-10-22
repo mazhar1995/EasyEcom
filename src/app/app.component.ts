@@ -5,53 +5,35 @@ import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
-
+export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.get();
-
   }
-  constructor(private http: EasytaskService){}
+  constructor(private http: EasytaskService) {}
   title = 'easytask';
-  longText = ["mazhar"]
-  results:any;
-  gender: any =[];
+  longText = ['mazhar'];
+  results: any;
+  gender: any = [];
 
-  filterForm = new FormGroup(
-    {
-      filterinput:new FormControl(''),
-      gender:new FormControl(''),
-      species:new FormControl('')
+  filterForm = new FormGroup({
+    filterinput: new FormControl(''),
+  });
 
-    }
-  )
-
-  get(){
-    this.http.getAllList().subscribe(
-      (resp:any)=>{
-        // console.log(JSON.stringify(resp));
-        this.results = resp.results;
-        console.log(this.results);
-      }
-    )
-  }
-  onSubmit(){
-
-    // this.applyFilter();
+  get() {
+    this.http.getAllList().subscribe((resp: any) => {
+      // console.log(JSON.stringify(resp));
+      this.results = resp.results;
+      console.log(this.results);
+    });
   }
 
-  applyFilter(){
-    this.http.getAllListByFilter(this.filterForm.value.filterinput).subscribe(
-      (response:any)=>{
-        // console.log(resp);
+  applyFilter() {
+    this.http
+      .getAllListByFilter(this.filterForm.value.filterinput)
+      .subscribe((response: any) => {
         this.results = response.results;
-
-
-      }
-    )
-
+      });
   }
-
 }

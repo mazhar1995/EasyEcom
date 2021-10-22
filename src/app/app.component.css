@@ -1,23 +1,18 @@
 .example-card {
   max-width: 100%;
   margin-bottom: 8px;
-  /* transform: scaleX(-1); */
 }
-.form{
+.form {
   margin-left: 5%;
 }
-/* .row{
-  margin: 10%;
-} */
 
-
- input[type=text] {
+input[type="text"] {
   padding: 6px;
   margin-top: 8px;
   font-size: 17px;
   border: none;
 }
-.search-container{
+.search-container {
   margin-left: 80px;
 }
 .search-container button {
@@ -34,9 +29,6 @@
   background: #ccc;
 }
 
-
- input[type=text] {
+input[type="text"] {
   border: 1px solid #ccc;
 }
-
-
